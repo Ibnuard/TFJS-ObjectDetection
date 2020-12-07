@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "TFJS-ObjectDetection"
+  "defaultProject": "TFJS-ObjectDetection",
+  "cli": {
+    "analytics": "816d5c46-ae7e-4a3c-99c2-bfa43873c6a2"
+  }
 }
