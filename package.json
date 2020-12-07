@@ -25,6 +25,8 @@
     "@angular/router": "^11.0.3",
     "@tensorflow-models/coco-ssd": "^0.1.1",
     "@tensorflow/tfjs": "^0.13.5",
+    "@types/jasmine": "~3.6.0",
+    "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "core-js": "^2.5.4",
     "express": "^4.17.1",

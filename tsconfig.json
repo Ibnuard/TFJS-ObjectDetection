@@ -9,7 +9,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "types": ["node", "express"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "lib": [
       "es2017",
       "dom"
