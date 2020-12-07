@@ -9,43 +9,40 @@ import * as cocoSSD from '@tensorflow-models/coco-ssd';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit 
-{
-  title = 'TF-ObjectDetection';
+export class AppComponent implements OnInit {
+  title = 'Inspired by StartUp';
   private video: HTMLVideoElement;
-  
 
-  ngOnInit()
-  { 
+
+  ngOnInit() {
     this.webcam_init();
     this.predictWithCocoModel();
   }
 
-public async predictWithCocoModel(){
-  const model = await cocoSSD.load('lite_mobilenet_v2');
-  this.detectFrame(this.video,model);
-  console.log('model loaded');
-}
-
-webcam_init()
-  {  
-  this.video = <HTMLVideoElement> document.getElementById("vid");
-  
-     navigator.mediaDevices
-    .getUserMedia({
-    audio: false,
-    video: {
-      facingMode: "user",
-    }
-     })
-    .then(stream => {
-    this.video.srcObject = stream;
-    this.video.onloadedmetadata = () => {
-      this.video.play();
-    };
-    });
+  public async predictWithCocoModel() {
+    const model = await cocoSSD.load('lite_mobilenet_v2');
+    this.detectFrame(this.video, model);
+    console.log('model loaded');
   }
-  
+
+  webcam_init() {
+    this.video = <HTMLVideoElement>document.getElementById("vid");
+
+    navigator.mediaDevices
+      .getUserMedia({
+        audio: false,
+        video: {
+          facingMode: "user",
+        }
+      })
+      .then(stream => {
+        this.video.srcObject = stream;
+        this.video.onloadedmetadata = () => {
+          this.video.play();
+        };
+      });
+  }
+
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
       this.renderPredictions(predictions);
@@ -56,19 +53,19 @@ webcam_init()
   }
 
   renderPredictions = predictions => {
-    const canvas = <HTMLCanvasElement> document.getElementById("canvas");
-    
+    const canvas = <HTMLCanvasElement>document.getElementById("canvas");
+
     const ctx = canvas.getContext("2d");
-    
-    canvas.width  = 300;
-    canvas.height = 300;
+
+    canvas.width = 600;
+    canvas.height = 600;
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // Font options.
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
-    ctx.drawImage(this.video,0, 0,300,300);
+    ctx.drawImage(this.video, 0, 0, 600, 600);
 
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
