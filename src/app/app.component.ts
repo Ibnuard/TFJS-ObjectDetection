@@ -57,15 +57,15 @@ export class AppComponent implements OnInit {
 
     const ctx = canvas.getContext("2d");
 
-    canvas.width = 300;
-    canvas.height = 300;
+    canvas.width = 600;
+    canvas.height = 600;
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // Font options.
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
-    ctx.drawImage(this.video, 0, 0, 300, 300);
+    ctx.drawImage(this.video, 0, 0, 600, 600);
 
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
